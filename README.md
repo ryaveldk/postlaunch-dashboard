@@ -45,7 +45,18 @@ Kræver 5-minutters engangsopsætning på <https://pages.cloudflare.com>.
 
 ## Opdatering
 
-Ændrer du i `FCPMockData.swift` skal du manuelt opdatere `SERVERS`,
-`ASSISTANTS` og `PRODUCTIONS` i `index.html`. Hvis det bliver et reelt
-behov kan vi tilføje en "Export til web"-knap i appen der regenererer
-HTML ud fra Swift-konstanterne.
+**Automatisk synkronisering er aktiv.** Efter hvert commit i PostLaunch-repoet
+kører `.git/hooks/post-commit` som kalder `scripts/sync-dashboard.sh
+--only-if-docs-changed`. Det:
+
+1. Springer ud straks hvis `docs/` ikke var en del af commit'et (ingen forsinkelse)
+2. Ellers: kloner/opdaterer mirror-repoet i `~/Library/Application Support/PostLaunch/dashboard-mirror/`
+3. Kopierer `docs/*` over, committer og pusher til `postlaunch-dashboard`-repoet
+4. GitHub Pages rebuilds automatisk inden for ~10 sekunder
+
+Sync-log ligger i `/tmp/postlaunch-sync.log` efter hver kørsel.
+Kan også køres manuelt: `./scripts/sync-dashboard.sh`
+
+Ændrer du i `FCPMockData.swift` skal du stadig manuelt opdatere `SERVERS`,
+`ASSISTANTS` og `PRODUCTIONS` i `index.html` — men så snart du committer,
+ryger ændringen til web'en.
