@@ -474,7 +474,10 @@
         <span class="sub">FCP Dashboard</span>
       </div>
     </div>
-    <div class="clock" id="clock">--:--</div>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span class="mono" style="font-size:9px; font-weight:700; letter-spacing:0.18em; color:var(--calm); padding:3px 8px; border-radius:999px; background:rgba(74,222,128,0.1); border:0.5px solid rgba(74,222,128,0.35); text-transform:uppercase;">SYNKET 18/04 · 01:06</span>
+      <div class="clock" id="clock">--:--</div>
+    </div>
   </header>
 
   <div class="tabs" id="tabs"></div>
@@ -509,7 +512,7 @@
   ];
 
   const PRODUCTIONS = [
-    { title: "Kongerne af Vesterbro · S4", client: "nftv",  tb: 178, server: "FCP-03", status: "Aktiv",        ast: ["ida","lars"] },
+    { title: "Kongerne af Vesterbro · S4", client: "nftv",  tb: 186, server: "FCP-03", status: "Aktiv",        ast: ["ida","lars"] },
     { title: "Mørkets Arv · S2",           client: "nftv",  tb: 164, server: "FCP-04", status: "Aktiv",        ast: ["mette","naja"] },
     { title: "Fjordens Børn",              client: "nftv",  tb: 152, server: "FCP-07", status: "Levering",     ast: ["ida"] },
     { title: "Året der Gik · 2026",        client: "metro", tb: 142, server: "FCP-04", status: "Levering",     ast: ["mette","lars"] },
